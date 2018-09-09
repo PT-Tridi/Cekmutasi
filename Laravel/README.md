@@ -13,7 +13,7 @@ Development &amp; Integration Toolkit for Laravel Framework
 
 ],</code></pre>
 
-Add this code to your class aliases array
+- Add this code to your class aliases array
 
 <pre><code>'aliases' =&gt; [
 
@@ -23,7 +23,7 @@ Add this code to your class aliases array
 
 ],</code></pre>
 
-Open your **composer.json** in the root folder then add this code to the psr-4 on autoload section, it will looks like:
+- Open your **composer.json** in the root folder then add this code to the psr-4 on autoload section, it will looks like:
 
 <pre><code>&quot;autoload&quot;: {
 
@@ -38,15 +38,15 @@ Open your **composer.json** in the root folder then add this code to the psr-4 o
        
 },</code></pre>
 
-then run composer command on your Command Line Console
+- then run composer command on your Command Line Console
 
 <pre><code>composer dump-autoload</code></pre>
 
 ## How To Use?
 
-Edit and set your Api Key on **packages/pt-tridi/cekmutasi/src/Cekmutasi.php**
+Edit and set your Api Key in **packages/pt-tridi/cekmutasi/src/Cekmutasi.php**
 
-You can use cekmutasi library by importing cekmutasi class. Here is the example of using cekmutasi class on Controller
+You can use cekmutasi library by importing cekmutasi class. Here is the example of using cekmutasi class in Controller
 
 <pre><code>&#x3C;?php
 
@@ -63,4 +63,4 @@ class AnotherController extends Controller
 
 ?&#x3E;</code></pre>
 
-For further example, you can check out in TestCekmutasi.php included on this package
+For further example, you can check out in TestCekmutasi.php included in this package
