@@ -5,11 +5,13 @@ Just simple step, copy **libraries/Cekmutasi.php** to your **application/librari
 
 ## How To Use?
 
+Edit and set your Api Key in **libraries/Cekmutasi.php**
+
 You can use cekmutasi library by loading Cekmutasi through CodeIgniter Library Loader as shown below:
 
 <pre><code>$this-&gt;load-&gt;library(&quot;cekmutasi&quot;);</code></pre>
 
-it will load Cekmutasi library in CodeIgniter class instance so you can use likw this:
+it will load Cekmutasi library in CodeIgniter class instance so you can use like this:
 
 <pre><code>$mutations = $this-&gt;cekmutasi-&gt;bank()-&gt;mutation($searchOptions);</code></pre>
 
