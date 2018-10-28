@@ -46,7 +46,8 @@ class Cekmutasi
             CURLOPT_SSL_VERIFYPEER  => false,
             CURLOPT_CONNECTTIMEOUT  => 10,
             CURLOPT_TIMEOUT         => 120,
-            CURLOPT_FAILONERROR     => true
+            CURLOPT_FAILONERROR     => true,
+            CURLOPT_IPRESOLVE       => CURL_IPRESOLVE_V4
         ]);
 
         $result = curl_exec($ch);
@@ -61,7 +62,7 @@ class Cekmutasi
             ]);
         }
 
-        return $this->printOut(json_decode($result, true));
+        return $result;
     }
 
     private function printOut($array)
