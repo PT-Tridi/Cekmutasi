@@ -2,7 +2,7 @@
 Development &amp; Integration Toolkit for Laravel Framework
 
 ## Steps
-- Copy **packages** folder under your laravel folder, or you can skip to **packages/pt-tridi** if **packages** folder already exists (http://prntscr.com/ksezq1)
+- Copy **packages** folder under your laravel folder, or you can skip to **packages/pt-tridi** if **packages** folder already exists (http://prntscr.com/lbg8pl)
 - Open your **config/app.php** and add this code to the providers array, it will looks like:
 
 <pre><code>'providers' =&gt; [
