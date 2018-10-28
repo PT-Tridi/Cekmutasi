@@ -56,7 +56,12 @@ use Cekmutasi;
 
 class AnotherController extends Controller
 {
-    $mutation = Cekmutasi::bank()-&#x3E;mutation($searchOptions);
+    $mutation = Cekmutasi::bank()-&#x3E;mutation([
+				'date'		=&gt; [
+					'from'	=&gt; date('Y-m-d') . ' 00:00:00',
+					'to'	=&gt; date('Y-m-d') . ' 23:59:59'
+				]
+			]);
 
     dd($mutations);
 }
