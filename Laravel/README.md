@@ -1,8 +1,8 @@
 # Cekmutasi X Laravel Framework
-Development &amp; Integration Toolkit for Laravel Framework
+Development &amp; Integration Toolkit untuk Laravel Framework
 
 ## Steps
-- Copy **packages** folder under your laravel folder, or you can skip to **packages/pt-tridi** if **packages** folder already exists (http://prntscr.com/lbg8pl)
+- Copy **packages** folder under your laravel root directory, or you can skip to **packages/pt-tridi** if **packages** folder already exists (http://prntscr.com/lbg8pl)
 - Open your **config/app.php** and add this code to the providers array, it will looks like:
 
 <pre><code>'providers' =&gt; [
@@ -42,9 +42,16 @@ Development &amp; Integration Toolkit for Laravel Framework
 
 <pre><code>composer dump-autoload</code></pre>
 
-## How To Use?
+- Add **CEKMUTASI_API_KEY** & **CEKMUTASI_API_SIGNATURE** to your **.env** file, it will looks like
 
-Edit and set your Api Key in **packages/pt-tridi/cekmutasi/src/Cekmutasi.php**
+<pre><code>// other env variable
+	
+	CEKMUTASI_API_KEY="place your api key here"
+	CEKMUTASI_API_SIGNATURE="place your api signature here"
+	
+ </code></pre>
+
+## How To Use?
 
 You can use cekmutasi library by importing cekmutasi class. Here is the example of using cekmutasi class in Controller
 
@@ -52,20 +59,20 @@ You can use cekmutasi library by importing cekmutasi class. Here is the example 
 
 namespace App\Http\Controllers;
 
-use Cekmutasi;
+use PTTridi\Cekmutasi\Cekmutasi;
 
 class AnotherController extends Controller
 {
-    $mutation = Cekmutasi::bank()-&#x3E;mutation([
+    $mutation = Cekmutasi::bank()-&#x3E;search([
 				'date'		=&gt; [
 					'from'	=&gt; date('Y-m-d') . ' 00:00:00',
 					'to'	=&gt; date('Y-m-d') . ' 23:59:59'
 				]
 			]);
 
-    dd($mutations);
+    dd($mutation);
 }
 
 ?&#x3E;</code></pre>
 
-For further example, you can check out in TestCekmutasi.php included in this package
+For further example, you can check out in **CekmutasiController.php** included in this package
