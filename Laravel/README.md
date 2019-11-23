@@ -76,3 +76,7 @@ class AnotherController extends Controller
 ?&#x3E;</code></pre>
 
 For further example, you can check out in **CekmutasiController.php** included in this package
+
+## Security Advice
+
+For the best way to handle Callback/IPN, we strongly recommend you to use the **catchIPN()** method with pre-build security validation to handle and verifiying incoming callback/ipn data.
