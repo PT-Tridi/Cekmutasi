@@ -1,5 +1,5 @@
 # Cekmutasi X Laravel Framework
-Development &amp; Integration Toolkit untuk Laravel Framework
+Development &amp; Integration Toolkit for Laravel Framework (5.3+)
 
 ## Steps
 - Copy **packages** folder under your laravel root directory, or you can skip to **packages/pt-tridi** if **packages** folder already exists (http://prntscr.com/lbg8pl)
