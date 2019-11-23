@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use PTTridi\Cekmutasi\Cekmutasi;
+use Illuminate\Http\Request;
 
 class CekmutasiController extends Controller
 {
@@ -66,5 +67,12 @@ class CekmutasiController extends Controller
 		$result = Cekmutasi::checkIP();
 
 		dd($result);
+	}
+
+	public function handleCallback(Request $request)
+	{
+		$ipn = Cekmutasi::catchIPN($request);
+
+		dd($ipn);
 	}
 }
