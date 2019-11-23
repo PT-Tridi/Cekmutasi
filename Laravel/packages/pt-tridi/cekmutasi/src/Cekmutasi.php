@@ -2,94 +2,48 @@
 
 namespace PTTridi\Cekmutasi;
 
-class Cekmutasi
+use PTTridi\Cekmutasi\Services\Bank;
+use PTTridi\Cekmutasi\Services\PayPal;
+use PTTridi\Cekmutasi\Services\OVO;
+use PTTridi\Cekmutasi\Services\GoPay;
+use PTTridi\Cekmutasi\Support\Constant;
+
+class Cekmutasi extends BaseClass
 {
-    // place your API Key here
-    private $apiKey = "";
-
-    private $apiUrl = "https://cekmutasi.co.id/v1";
-
-    private $service;
-
-    const BANK = 1;
-    const PAYPAL = 2;
+	use Contstant;
 
     public function __construct()
     {
-        
+        parent::__construct();
+    }
+	
+    public function bank($configs = [])
+    {
+        return (new Bank($configs));
     }
 
-    public function bank()
+    public function paypal($configs = [])
     {
-        $this->service = self::BANK;
-        return $this;
+        return (new PayPal($configs));
     }
 
-    public function paypal()
+    public function gopay($configs = [])
     {
-        $this->service = self::PAYPAL;
-        return $this;
+    	return (new GoPay($configs));
     }
 
-    private function request($endpoint, $params = [])
+    public function ovo($configs = [])
     {
-        $ch = curl_init();
-        curl_setopt_array($ch, [
-            CURLOPT_FRESH_CONNECT   => true,
-            CURLOPT_URL             => $this->apiUrl . $endpoint,
-            CURLOPT_RETURNTRANSFER  => true,
-            CURLOPT_POST            => true,
-            CURLOPT_POSTFIELDS      => http_build_query($params),
-            CURLOPT_HEADER          => false,
-            CURLOPT_HTTPHEADER      => ['API-KEY: ' . $this->apiKey, 'Accept: application/json'],
-            CURLOPT_SSL_VERIFYHOST  => 0,
-            CURLOPT_SSL_VERIFYPEER  => false,
-            CURLOPT_CONNECTTIMEOUT  => 10,
-            CURLOPT_TIMEOUT         => 120,
-            CURLOPT_FAILONERROR     => true,
-            CURLOPT_IPRESOLVE       => CURL_IPRESOLVE_V4
-        ]);
-
-        $result = curl_exec($ch);
-        $errno = curl_errno($ch);
-
-        if( $errno )
-        {
-            return $this->printOut([
-                'success'           => false,
-                'error_message'     => curl_error($ch),
-                'response'          => [] 
-            ]);
-        }
-
-        return $result;
+    	return (new OVO($configs));
     }
 
-    private function printOut($array)
+    public function checkIP()
     {
-        return json_encode($array);
+    	return $this->request('/myip', Constant::HTTP_POST);
     }
 
-    public function mutation($searchOptions = [])
+    public function balance()
     {
-        $search = [
-            'search'    => $searchOptions
-        ];
-
-        if( $this->service == self::BANK ) {
-            $endpoint = "/bank/search";
-        }
-        elseif( $this->service == self::PAYPAL ) {
-            $endpoint = "/paypal/search";
-        }
-        else {
-            return $this->printOut([
-                'success'       => false,
-                'error_message' => 'Undefined service',
-                'response'      => []
-            ]);
-        }
-
-        return $this->request($endpoint, $search);
+    	return $this->request('/balance', Constant::HTTP_POST);
     }
 }
