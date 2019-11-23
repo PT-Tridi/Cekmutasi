@@ -46,4 +46,35 @@ class Cekmutasi extends BaseClass
     {
     	return $this->request('/balance', Constant::HTTP_POST);
     }
+
+    public function catchIPN(\Illuminate\Http\Request $request)
+    {
+        $apiSignature = env('CEKMUTASI_API_SIGNATURE', '');
+        $incomingSignature = $request->server('HTTP_API_SIGNATURE', '');
+
+        if( version_compare(PHP_VERSION, '5.6.0', '>=') )
+        {
+            if( !hash_equals($apiSignature, $incomingSignature) ) {
+                \Log::info(get_class($this).': Invalid Signature, ' . $apiSignature . ' vs ' . $incomingSignature);
+                exit("Invalid signature!");
+            }
+        }
+        else
+        {
+            if( $apiSignature != $incomingSignature ) {
+                \Log::info(get_class($this).': Invalid Signature, ' . $apiSignature . ' vs ' . $incomingSignature);
+                exit("Invalid signature!");
+            }
+        }
+
+        $json = $request->getContent();
+        $decoded = json_decode($json);
+
+        if( json_last_error() !== JSON_ERROR_NONE ) {
+            \Log::info(get_class($this).': Invalid JSON, ' . $json);
+            exit("Invalid JSON!");
+        }
+
+        return $decoded;
+    }
 }
