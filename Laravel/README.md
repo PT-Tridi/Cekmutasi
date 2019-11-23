@@ -38,7 +38,7 @@ Development &amp; Integration Toolkit untuk Laravel Framework
        
 },</code></pre>
 
-- then run composer command on your Command Line Console
+- Then run composer command on your Command Line Console
 
 <pre><code>composer dump-autoload</code></pre>
 
@@ -46,9 +46,9 @@ Development &amp; Integration Toolkit untuk Laravel Framework
 
 <pre><code>// other env variable
 	
-	CEKMUTASI_API_KEY="place your api key here"
-	CEKMUTASI_API_SIGNATURE="place your api signature here"
-	
+CEKMUTASI_API_KEY="place your api key here"
+CEKMUTASI_API_SIGNATURE="place your api signature here"
+
  </code></pre>
 
 ## How To Use?
