@@ -417,10 +417,9 @@ function cekmutasi_config()
 		"PaymentCheck-Enabled" => array(
 			'FriendlyName' => "<span style='font-weight:bold;'>Aktifkan verifikasi IPN</span>", 
 			'Type' => "yesno",
-			'Description' => "Centang untuk mengaktifkan varifikasi IPN", 
+			'Description' => "Centang untuk mengaktifkan dan cek verifikasi IPN yang masuk",
 		),
 		//----------------------------------------------------------------------------
-
     );
 
 	//------------------------------------------------------------------------------------

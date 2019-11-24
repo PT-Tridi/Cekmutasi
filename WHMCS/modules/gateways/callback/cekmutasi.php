@@ -115,6 +115,21 @@ if (isset($input_request['query_string']['page']))
 
 		if ($input_request['query_string']['page'] === 'notify')
 		{
+			$incomingSignature = isset($_SERVER['HTTP_API_SIGNATURE']) ? $_SERVER['HTTP_API_SIGNATURE'] : '';
+
+			if( version_compare(PHP_VERSION, '5.6.0', '>=') )
+			{
+				if( !hash_equals($incomingSignature, $CekmutasiConfigs['api_secret']) ) {
+					exit("Invalid signature!");
+				}
+			}
+			else
+			{
+				if( $incomingSignature !== $CekmutasiConfigs['api_secret'] ) {
+					exit("Invalid signature!");
+				}
+			}
+
 			$insert_ipn_params = array(
 				'payment_method'		=> $input_request['query_string']['page'],
 				'input_data'			=> json_encode($input_request['input_params'], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT),
@@ -216,7 +231,7 @@ if (isset($input_request['query_string']['page']))
 
 						$invoices_data = mysqli_fetch_object($sql_query);
 
-						if (isset($invoices_data->id))
+						if( isset($invoices_data->id) )
 						{
 							// Generate Invoice Transaction Data
 							$invoices_data->transaction_data = array(
@@ -423,7 +438,7 @@ function set_cekmutasi_payment_status($curl, $cekmutasi, $order_invoices_data, $
 
 			$collect['mutasi_data'] = array();
 
-			if (isset($collect['cekmutasi']['tmp_data']->success))
+			if ( $collect['cekmutasi']['tmp_data']->success === true )
 			{
 				if (isset($collect['cekmutasi']['tmp_data']->response))
 				{
