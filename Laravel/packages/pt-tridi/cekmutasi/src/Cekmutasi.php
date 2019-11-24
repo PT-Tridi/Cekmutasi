@@ -46,11 +46,11 @@ class Cekmutasi extends BaseClass
     }
 
     /**
-	*	Load OVO service
+	*	Load GoPay service
 	*
 	*	@param Array $configs
 	*
-	*	@return PTTridi\Cekmutasi\Services\OVO
+	*	@return PTTridi\Cekmutasi\Services\GoPay
 	*
 	**/
 
@@ -60,11 +60,11 @@ class Cekmutasi extends BaseClass
     }
 
     /**
-	*	Load GoPay service
+	*	Load OVO service
 	*
 	*	@param Array $configs
 	*
-	*	@return PTTridi\Cekmutasi\Services\GoPay
+	*	@return PTTridi\Cekmutasi\Services\OVO
 	*
 	**/
 
