@@ -10,8 +10,6 @@ use PTTridi\Cekmutasi\Support\Constant;
 
 class Cekmutasi extends BaseClass
 {
-	use Contstant;
-
     public function __construct()
     {
         parent::__construct();

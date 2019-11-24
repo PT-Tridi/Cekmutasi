@@ -2,7 +2,7 @@
 
 namespace PTTridi\Cekmutasi\Support;
 
-trait Constant
+class Constant
 {
 	const VERSION = '1.0';
 

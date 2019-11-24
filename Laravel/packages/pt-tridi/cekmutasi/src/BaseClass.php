@@ -10,8 +10,6 @@ use PTTridi\Cekmutasi\Support\Constant;
 
 class BaseClass
 {
-	use Contstant;
-
 	protected $apiKey = "";
 	protected $apiSignature = "";
     protected $apiUrl = "https://api.cekmutasi.co.id/v1";
