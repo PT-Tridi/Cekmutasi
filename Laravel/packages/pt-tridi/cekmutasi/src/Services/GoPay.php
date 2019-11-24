@@ -16,6 +16,15 @@ class GoPay extends BaseClass
 		$this->config = $configs;
 	}
 
+		/**
+	*	Search GoPay mutation
+	*
+	*	@param Array $options
+	*
+	*	@return Object PTTridi\Cekmutasi\BaseClass::request()
+	*
+	**/
+
 	public function search($options = [])
 	{
 		return $this->request('/gopay/search', Constant::HTTP_POST, [

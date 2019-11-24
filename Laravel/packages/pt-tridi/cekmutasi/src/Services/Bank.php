@@ -16,6 +16,15 @@ class Bank extends BaseClass
 		$this->config = $configs;
 	}
 
+	/**
+	*	Search bank mutation
+	*
+	*	@param Array $options
+	*
+	*	@return Object PTTridi\Cekmutasi\BaseClass::request()
+	*
+	**/
+
 	public function search($options = [])
 	{
 		return $this->request('/bank/search', Constant::HTTP_POST, [

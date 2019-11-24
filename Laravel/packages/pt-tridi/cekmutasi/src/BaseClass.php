@@ -13,12 +13,27 @@ class BaseClass
 	use Contstant;
 
 	protected $apiKey = "";
+	protected $apiSignature = "";
     protected $apiUrl = "https://api.cekmutasi.co.id/v1";
 
     public function __construct()
     {
         $this->apiKey = env('CEKMUTASI_API_KEY', '');
+        $this->apiSignature = env('CEKMUTASI_API_SIGNATURE', '');
     }
+
+    /**
+	*	Make HTTP request
+	*
+	*	@param String $endpoint
+	*
+	*	@param Int PTTridi\Cekmutasi\Support\Constant $method
+	*
+	*	@param Array $params
+	*
+	*	@return Object
+	*
+	**/
 
 	protected function request($endpoint, $method = Constant::HTTP_GET, $params = [])
     {

@@ -16,6 +16,15 @@ class OVO extends BaseClass
 		$this->config = $configs;
 	}
 
+	/**
+	*	Search OVO mutation
+	*
+	*	@param Array $options
+	*
+	*	@return Object PTTridi\Cekmutasi\BaseClass::request()
+	*
+	**/
+
 	public function search($options = [])
 	{
 		return $this->request('/ovo/search', Constant::HTTP_POST, [
@@ -23,12 +32,34 @@ class OVO extends BaseClass
 		]);
 	}
 
+	/**
+	*	Get list bank for OVO Transfer
+	*
+	*	@param String $sourceNumber
+	*
+	*	@return Object PTTridi\Cekmutasi\BaseClass::request()
+	*
+	**/
+
 	public function transferBankList($sourceNumber)
 	{
 		return $this->request('/ovo/transfer/bank-list', Constant::HTTP_POST, [
 			'source_number'	=> $sourceNumber
 		]);
 	}
+
+	/**
+	*	Transfer inquiry
+	*
+	*	@param String $sourceNumber
+	*
+	*	@param String $bankCode
+	*
+	*	@param String $destinationNumber
+	*
+	*	@return Object PTTridi\Cekmutasi\BaseClass::request()
+	*
+	**/
 
 	public function transferBankInquiry($sourceNumber, $bankCode, $destinationNumber)
 	{
@@ -38,6 +69,21 @@ class OVO extends BaseClass
 			'destination_number'	=> $destinationNumber
 		]);
 	}
+
+	/**
+	*	Proccess transfer
+	*
+	*	@param String $uuid
+	*
+	*	@param String $token
+	*
+	*	@param String $amount
+	*
+	*	@param String $note
+	*
+	*	@return Object PTTridi\Cekmutasi\BaseClass::request()
+	*
+	**/
 
 	public function transferBank($uuid, $token, $amount, $note = '')
 	{
@@ -49,12 +95,32 @@ class OVO extends BaseClass
 		]);
 	}
 
+	/**
+	*	Get transfer detail
+	*
+	*	@param String $uuid
+	*
+	*	@return Object PTTridi\Cekmutasi\BaseClass::request()
+	*
+	**/
+
 	public function transferBankDetail($uuid)
 	{
 		return $this->request('/ovo/transfer/detail', Constant::HTTP_GET, [
 			'uuid'	=> $uuid
 		]);
 	}
+
+	/**
+	*	Transfer Inquiry
+	*
+	*	@param String $sourceNumber
+	*
+	*	@param String $destinationNumber
+	*
+	*	@return Object PTTridi\Cekmutasi\BaseClass::request()
+	*
+	**/
 
 	public function transferOVOInquiry($sourceNumber, $destinationNumber)
 	{
@@ -63,6 +129,19 @@ class OVO extends BaseClass
 			'phone'	=> $destinationNumber
 		]);
 	}
+
+	/**
+	*	Process transfer
+	*
+	*	@param String $sourceNumber
+	*
+	*	@param String $destinationNumber
+	*
+	*	@param Int $amount
+	*
+	*	@return Object PTTridi\Cekmutasi\BaseClass::request()
+	*
+	**/
 
 	public function transferOVO($sourceNumber, $destinationNumber, $amount)
 	{

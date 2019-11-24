@@ -16,12 +16,32 @@ class PayPal extends BaseClass
 		$this->config = $configs;
 	}
 
+	/**
+	*	Search PayPal mutation
+	*
+	*	@param Array $options
+	*
+	*	@return Object PTTridi\Cekmutasi\BaseClass::request()
+	*
+	**/
+
 	public function search($options = [])
 	{
 		return $this->request('/paypal/search', Constant::HTTP_POST, [
 			'search'	=> $options
 		]);
 	}
+
+	/**
+	*	Get payment detail
+	*
+	*	@param String $username
+	*
+	*	@param String $transactionid
+	*
+	*	@return Object PTTridi\Cekmutasi\BaseClass::request()
+	*
+	**/
 
 	public function detail($username, $transactionid)
 	{
