@@ -13,8 +13,8 @@ You can use cekmutasi library by loading Cekmutasi through CodeIgniter Library L
 
 it will load Cekmutasi library in CodeIgniter class instance so you can use like this:
 
-<pre><code>$mutations = $this-&gt;cekmutasi-&gt;bank()-&gt;mutation($searchOptions);</code></pre>
+<pre><code>$mutations = $this-&gt;cekmutasi-&gt;balance();</code></pre>
 
-JSON data will return as data type of result
+Object data will return as data type of result
 
 For further example, you can check out in TestCekmutasi.php included on this package
