@@ -120,13 +120,13 @@ if (isset($input_request['query_string']['page']))
 			if( version_compare(PHP_VERSION, '5.6.0', '>=') )
 			{
 				if( !hash_equals($incomingSignature, $CekmutasiConfigs['api_secret']) ) {
-					exit("Invalid signature!");
+					exit("Invalid signature: " . $CekmutasiConfigs['api_secret'] . " vs " . $incomingSignature);
 				}
 			}
 			else
 			{
 				if( $incomingSignature !== $CekmutasiConfigs['api_secret'] ) {
-					exit("Invalid signature!");
+					exit("Invalid signature: " . $CekmutasiConfigs['api_secret'] . " vs " . $incomingSignature);
 				}
 			}
 
