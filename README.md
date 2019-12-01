@@ -1,4 +1,4 @@
-# Cekmutasi | Sistem Validasi Pembayaran Bank Otomatis dan Pengelolaan Rekening Terintegrasi
+# Cekmutasi | Sistem Validasi Pembayaran Otomatis dan Pengelolaan Rekening Terintegrasi
 Development &amp; Integration Toolkit for https://cekmutasi.co.id
 
 ## List Of Library/Package
